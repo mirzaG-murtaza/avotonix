@@ -296,8 +296,8 @@ function FloatingDecor({ cursor, scroll }: FloatingDecorProps) {
 export default function Home() {
   const [cursor, setCursor] = useState<CursorPosition>({ x: 0.5, y: 0.5 });
   const [scrollProgress, setScrollProgress] = useState(0);
-  const pointerFrameRef = useRef<number>();
-  const scrollFrameRef = useRef<number>();
+  const pointerFrameRef = useRef<number | null>(null);
+  const scrollFrameRef = useRef<number | null>(null);
 
   useEffect(() => {
     const handlePointer = (event: PointerEvent) => {
