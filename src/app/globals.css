@@ -14,6 +14,10 @@
     --border: rgba(91, 33, 182, 0.15);
     --ring: rgba(102, 77, 220, 0.35);
     --glow: rgba(126, 66, 255, 0.35);
+    --cta-gradient: linear-gradient(135deg, #f8f3ff 0%, #ede6ff 48%, #dacbfd 100%);
+    --accent-panel-gradient: linear-gradient(140deg, #f4eeff 0%, #efe7ff 55%, #e0d2ff 100%);
+    --shell-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(237, 225, 255, 0.88) 50%, rgba(223, 207, 255, 0.82) 100%);
+    --section-gradient: linear-gradient(140deg, rgba(255, 255, 255, 0.97) 0%, rgba(238, 226, 255, 0.86) 60%, rgba(225, 210, 255, 0.8) 100%);
   }
 
   :root[data-theme="dark"] {
@@ -29,6 +33,10 @@
     --border: rgba(167, 139, 250, 0.18);
     --ring: rgba(124, 58, 237, 0.55);
     --glow: rgba(103, 232, 249, 0.25);
+    --cta-gradient: linear-gradient(135deg, #0c042f 0%, #150943 52%, #251663 100%);
+    --accent-panel-gradient: linear-gradient(140deg, #0c0433 0%, #140a47 54%, #1f1363 100%);
+    --shell-gradient: linear-gradient(135deg, rgba(12, 4, 47, 0.9) 0%, rgba(22, 10, 70, 0.88) 55%, rgba(18, 10, 60, 0.85) 100%);
+    --section-gradient: linear-gradient(140deg, rgba(13, 6, 45, 0.94) 0%, rgba(24, 12, 68, 0.9) 60%, rgba(30, 18, 82, 0.86) 100%);
   }
 
   * {
@@ -218,6 +226,22 @@
 
   :root[data-theme="dark"] .btn-secondary:hover {
     background: rgba(40, 24, 90, 0.88);
+  }
+
+  .gradient-cta {
+    background: var(--cta-gradient);
+  }
+
+  .gradient-accent {
+    background: var(--accent-panel-gradient);
+  }
+
+  .shell-panel {
+    background: var(--shell-gradient);
+  }
+
+  .section-panel {
+    background: var(--section-gradient);
   }
 
   .surface-card {

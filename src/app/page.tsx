@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -16,21 +17,21 @@ const navItems = [
 
 const featureHighlights = [
   {
-    title: "Omnichannel concierge",
+    title: "Omnichannel AI solutions",
     description:
-      "Voice, SMS, email, and chat work together so no lead slips through. Avotonix handles the first hello and keeps the conversation going.",
-    bullets: ["Industry-aware greetings", "Real-time CRM updates", "Instant escalation routing"],
+      "Voice, SMS, email, and chat work together so no lead slips through. Avotonix handles inbound greetings, outbound reactivation, and keeps every conversation moving forward.",
+    bullets: ["Conversations tailored to your brand", "Real-time CRM updates", "Intelligent escalation routing", "Automated follow-up and nurture"],
   },
   {
-    title: "Qualify & schedule intelligently",
+    title: "Qualify and convert every opportunity",
     description:
-      "We capture intent, qualify opportunities, answer FAQs, and drop in qualified bookings straight to your calendar or ticketing system.",
-    bullets: ["Smart follow-ups", "Calendar sync & reminders", "Human warm transfer options"],
+      "We qualify every interaction--from new callers to dormant leads. We capture intent, answer FAQs, and drop qualified bookings straight to your calendar or ticketing system.",
+    bullets: ["Proactive lead nurturing", "Calendar sync & reminders", "Human warm transfer options"],
   },
   {
-    title: "Brand-safe AI voice",
+    title: "Brand-safe AI solutions",
     description:
-      "Natural speech models tuned to your brand tone, with sentiment awareness and compliance guardrails baked in from day one.",
+      "Natural speech models tuned to your brand tone, with sentiment awareness and compliance guardrails built into every interaction from day one.",
     bullets: ["Multi-lingual support", "PCI & HIPAA modes", "Zero hallucination architecture"],
   },
 ];
@@ -82,19 +83,29 @@ const testimonials = [
 
 const faqs = [
   {
-    question: "How quickly can we go live?",
+    question: "What exactly does Avotonix's AI Voice Solution do?",
     answer:
-      "Most teams launch within 10 business days. We use pre-built industry playbooks and tailor the conversation, integrations, and tone for your brand.",
+      "Avotonix automates phone-based conversations for your business--handling greetings, appointment bookings, lead reactivation, and customer follow-ups using natural, human-like AI voices that align with your brand tone.",
   },
   {
-    question: "What systems does Avotonix integrate with?",
+    question: "Can the AI voice agent integrate with my existing tools and CRM?",
     answer:
-      "We connect with popular tools such as HubSpot, Salesforce, Calendly, Clio, ServiceTitan, NexHealth, and custom webhooks.",
+      "Absolutely. Our system connects with popular CRMs, calendars, ticketing, and payment tools to ensure seamless data flow--so your team never has to manually update or follow up.",
   },
   {
-    question: "Can we keep a human in the loop?",
+    question: "How does the AI handle different industries or call types?",
     answer:
-      "Absolutely. You can set escalation rules for high-value conversations, hand off to live staff, or monitor in real time with whisper coaching.",
+      "Each AI workflow is custom-built for your business. Whether you run a dental clinic, law firm, or hotel, we tailor the script, tone, and compliance requirements to your industry's needs.",
+  },
+  {
+    question: "Is the AI voice capable of handling multiple languages and accents?",
+    answer:
+      "Yes. Avotonix supports multilingual and regional voice options, allowing your business to serve customers in their preferred language while maintaining a consistent brand voice.",
+  },
+  {
+    question: "Is my customer data secure and compliant?",
+    answer:
+      "Data security is a top priority. All recordings, transcripts, and analytics are encrypted and stored in compliance with data protection laws such as HIPAA, GDPR, and CCPA where applicable.",
   },
 ];
 
@@ -143,7 +154,7 @@ function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-white/80 text-[var(--foreground)] shadow-sm backdrop-blur-md transition hover:bg-white dark:bg-[#15103c]/80 dark:hover:bg-[#1d1650]"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-white/90 text-[#120a33] shadow-sm backdrop-blur-md transition hover:bg-white dark:bg-white/12 dark:hover:bg-white/18"
       aria-label={`Switch to ${renderTheme === "light" ? "dark" : "light"} mode`}
     >
       {renderTheme === "light" ? <MoonIcon /> : <SunIcon />}
@@ -162,8 +173,8 @@ function SunIcon() {
 
 function MoonIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-      <path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79z" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#120a33" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 4.2a7.8 7.8 0 1 0 7.8 9.17 6.5 6.5 0 1 1-7.8-9.17Z" />
     </svg>
   );
 }
@@ -359,14 +370,19 @@ export default function Home() {
     <div className="relative flex min-h-screen flex-col">
       <FloatingDecor cursor={cursor} scroll={scrollProgress} />
       <header className="sticky top-6 z-50 mx-auto w-full max-w-6xl px-4 sm:px-6">
-        <div className="flex items-center justify-between gap-4 rounded-full border border-[var(--border)] bg-white/80 px-5 py-3 shadow-md shadow-purple-500/5 backdrop-blur-lg transition dark:bg-[#0f0630]/80">
+        <div className="flex items-center justify-between gap-4 rounded-full border border-[var(--border)] shell-panel px-5 py-3 shadow-md shadow-purple-500/5 backdrop-blur-lg transition">
           <Link href="/" className="flex items-center gap-2">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#8b5cf6] via-[#6d50f5] to-[#4f8bfd] text-white shadow-lg shadow-purple-500/40">
-              A
-            </span>
+            <Image
+              src="/avotonix-logo.png"
+              alt="Avotonix logo"
+              width={40}
+              height={40}
+              className="h-10 w-10 drop-shadow-[0_12px_24px_rgba(82,53,222,0.55)]"
+              priority
+            />
             <div className="flex flex-col leading-tight">
               <span className="text-base font-semibold tracking-tight text-foreground">Avotonix</span>
-              <span className="text-xs text-muted">AI Receptionist Agency</span>
+              <span className="text-xs text-muted">AI Voice Solutions Studio</span>
             </div>
           </Link>
           <nav className="hidden items-center gap-6 md:flex">
@@ -379,7 +395,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <Link href="#contact" className="btn-primary hidden md:inline-flex">
-              Book a strategy call
+              Book a voice strategy call
             </Link>
           </div>
         </div>
@@ -396,18 +412,17 @@ export default function Home() {
               <div className="max-w-2xl space-y-6">
                 <span className="animate-hero inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1 text-sm font-medium">
                   <span className="h-2 w-2 rounded-full bg-emerald-300" />
-                  Fully managed AI receptionists
+                  Fully managed AI voice solutions
                 </span>
                 <h1 className="animate-hero animate-hero-delay-1 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                  Turn every caller into a loyal client with an AI receptionist that never sleeps.
+                  Turn every interaction into a loyal client with AI voice solutions that never sleep.
                 </h1>
                 <p className="animate-hero animate-hero-delay-2 text-lg text-white/85 sm:text-xl">
-                  Avotonix designs, trains, and runs AI receptionists tailored to your brand.
-                  We greet, qualify, schedule, and escalate -- so your team can focus on growing the business.
+                  Avotonix designs, trains, and runs AI voice solutions tailored to your brand. We engage, qualify, schedule, and reactivate -- so your team can focus on growing the business.
                 </p>
                 <div className="animate-hero animate-hero-delay-2 flex flex-col gap-4 sm:flex-row">
                   <Link href="#contact" className="btn-primary w-full sm:w-auto">
-                    Talk to an AI expert
+                    Book a voice strategy call
                   </Link>
                   <a
                     href="#features"
@@ -469,7 +484,7 @@ export default function Home() {
                   {feature.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-center gap-2">
                       <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#8b5cf6]/10 text-[#6d50f5]">
-                        ●
+                      &bull;
                       </span>
                       {bullet}
                     </li>
@@ -484,10 +499,9 @@ export default function Home() {
           <div className="surface-card overflow-hidden rounded-[32px] p-10 shadow-xl transition-transform duration-700 hover:-translate-y-2 hover:shadow-[0_48px_90px_-50px_rgba(80,46,170,0.6)]">
             <div className="grid gap-10 lg:grid-cols-[1.2fr,1fr]">
               <div>
-                <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">Tailored by industry, not templated.</h2>
+                <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">Tailored by industry, built for conversion.</h2>
                 <p className="mt-4 text-lg text-muted">
-                  Whether it is a clinic, a law office, or a hospitality brand, Avotonix orchestrates scripts, compliance,
-                  and tone to feel like your best receptionist on their best day.
+                  Avotonix brings the human touch to AI voice--blending smart scripts, perfect tone, and seamless workflows to turn every call into a conversion.
                 </p>
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {industries.map((industry) => (
@@ -501,14 +515,14 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div className="rounded-3xl bg-gradient-to-br from-[#ede4ff] via-[#f7f2ff] to-[#d7c8ff] p-8 dark:from-[#0c0433] dark:via-[#140a47] dark:to-[#1f1363]">
-                <h3 className="text-lg font-semibold text-foreground">Your AI receptionist handles:</h3>
+              <div className="gradient-accent rounded-3xl p-8">
+                <h3 className="text-lg font-semibold text-foreground">Your AI voice agent handles:</h3>
                 <ul className="mt-5 space-y-4 text-sm leading-6 text-muted">
-                  <li>Instant greetings with branded tone and multilingual options.</li>
-                  <li>Qualification checklists with dynamic follow-up questions.</li>
-                  <li>Calendar, ticketing, and payment capture orchestration.</li>
-                  <li>Human handoff with live summaries for your team.</li>
-                  <li>Compliance-safe logging, recordings, and analytics.</li>
+                  <li>Personalized greetings in your brand's tone.</li>
+                  <li>Dynamic lead nurturing and qualification.</li>
+                  <li>Effortless appointment booking and payment capture.</li>
+                  <li>Smooth transfers with instant summaries.</li>
+                  <li>Secure analytics and compliance-safe recordings.</li>
                 </ul>
                 <Link href="#process" className="btn-secondary mt-6 inline-flex">
                   Explore the delivery process
@@ -519,7 +533,7 @@ export default function Home() {
         </section>
 
         <section id="process" className="mx-auto mt-24 max-w-6xl px-4 sm:px-6">
-          <div className="rounded-[32px] border border-[var(--border)] bg-white/70 p-10 shadow-purple-500/10 backdrop-blur-md dark:bg-[#0f0630]/60">
+          <div className="section-panel rounded-[32px] border border-[var(--border)] p-10 shadow-purple-500/10 backdrop-blur-md">
             <h2 className="text-3xl font-semibold text-foreground sm:text-4xl">From intake to live in days, not months.</h2>
             <p className="mt-3 max-w-2xl text-lg text-muted">
               We bring a dedicated conversational strategist and automation engineer. You bring the goals. Together, we launch a
@@ -598,7 +612,7 @@ export default function Home() {
         </section>
 
         <section id="contact" className="mx-auto mt-24 max-w-6xl px-4 sm:px-6">
-          <div className="overflow-hidden rounded-[32px] border border-[var(--border)] bg-gradient-to-br from-[#f6f1ff] via-[#ece1ff] to-[#dcc9ff] p-10 shadow-[0_28px_60px_-40px_rgba(98,49,204,0.6)] transition-transform duration-700 hover:-translate-y-2 hover:shadow-[0_58px_110px_-52px_rgba(80,42,172,0.6)] dark:from-[#0c042f] dark:via-[#150943] dark:to-[#251663]">
+          <div className="gradient-cta overflow-hidden rounded-[32px] border border-[var(--border)] p-10 shadow-[0_28px_60px_-40px_rgba(98,49,204,0.6)] transition-transform duration-700 hover:-translate-y-2 hover:shadow-[0_58px_110px_-52px_rgba(80,42,172,0.6)]">
             <div className="grid gap-10 lg:grid-cols-[1.1fr,1fr]">
               <div className="space-y-4">
                 <span className="inline-flex items-center gap-2 rounded-full bg-[#8b5cf6]/10 px-4 py-1.5 text-sm font-medium text-[#6d50f5]">
@@ -608,7 +622,7 @@ export default function Home() {
                   Ready to greet every lead with confidence?
                 </h2>
                 <p className="text-lg text-muted">
-                  Book a strategy call to see how Avotonix builds, trains, and operates an AI receptionist that sounds like your best team member.
+                  Book a strategy call to see how Avotonix builds, trains, and operates an AI voice agent that sounds like your best team member.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <a href="mailto:hello@avotonix.com" className="btn-primary w-full sm:w-auto">
@@ -645,11 +659,11 @@ export default function Home() {
       </main>
 
       <footer className="mx-auto mt-24 w-full max-w-6xl px-4 pb-16 sm:px-6">
-        <div className="rounded-3xl border border-[var(--border)] bg-white/70 px-6 py-8 text-sm text-muted backdrop-blur-md dark:bg-[#0f0630]/70">
+        <div className="shell-panel rounded-3xl border border-[var(--border)] px-6 py-8 text-sm text-muted backdrop-blur-md">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-base font-semibold text-foreground">Avotonix</p>
-              <p className="text-sm text-muted">AI automation agency for human-grade receptionist experiences.</p>
+              <p className="text-sm text-muted">AI automation agency for human-grade voice experiences.</p>
             </div>
             <div className="flex flex-wrap items-center gap-4">
               <a href="#features" className="transition hover:text-foreground">
